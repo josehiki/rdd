@@ -1,3 +1,11 @@
+<?php 
+	session_start();
+	if(isset($_SESSION['nombreUsuario']))
+	{
+		header("Location:http://localhost/rdd/views/dash.php");
+		die();
+	}
+ ?>
 <!DOCTYPE html>
 <html>
 	<head>

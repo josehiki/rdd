@@ -23,13 +23,20 @@
 		if(password_verify($contraUsuario, $row['contrasenia']))
 		{
 			$response = true;
+			$nombreUsuario = $row['nombre'];
 		}
 	}
 
 	if($response){
-		echo "dash";
+		session_start();
+
+		$_SESSION['nombreUsuario'] = $nombreUsuario;
+		
+		header("Location:http://localhost/rdd/views/dash.php");
+		// die();
 	}else
 	{
+		session_destroy();
 		header("Location:http://localhost/rdd/views/login.php?response=0");
 		die();
 	}
