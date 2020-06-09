@@ -1,0 +1,48 @@
+<html>
+	<head>
+		<title>Juego escolar</title>
+		<link rel="stylesheet" type="text/css" href="css/estilos.css"/>
+	</head>
+	<body>
+		<div class="encabezado">
+			<a class="gestionarPreguntas" href="gestionarPreguntas.html" >
+				Profesora
+			</a>
+		</div>
+
+		<h1>Bienvenido!!</h1>
+		<div class="contenido" id="divContenido">
+			<a class="botonInicioJuego" onclick="seleccionMateria()">Iniciar Juego</a>
+		</div>
+
+		<div class="listaMaterias" id="divListaMaterias">
+			<p class="instrucciones">Selecciona una materia</p>				
+			<div class="materia">
+				<h2>Ciencias Naturales</h2>
+				<ul class="">
+					<li class="itemTema"><a href="juego.html">Regiones Naturales</a></li>
+					<li class="itemTema"><a href="juego.html">Flora</a></li>
+					<li class="itemTema"><a href="juego.html">Fauna</a></li>
+					<li class="itemTema"><a href="juego.html">Ejes Terrestres</a></li>
+					<li class="itemTema"><a href="juego.html">Mezclas</a></li>
+					<li class="itemTema"><a href="juego.html">Sonido y Propagación</a></li>
+				</ul>
+			</div>
+			<div class="materia">
+				<h2>Geografía</h2>
+				<ul class="">
+					<li class="itemTema"><a href="juego.html">Capitales</a></li>
+					<li class="itemTema"><a href="juego.html">Idiomas del mundo</a></li>
+					<li class="itemTema"><a href="juego.html">Continentes</a></li>
+				</ul>
+			</div>
+		</div>
+	
+	</body>
+	<script>
+		function seleccionMateria(){
+			document.getElementById('divContenido').style.display = "none"
+			document.getElementById('divListaMaterias').style.display = "block";
+		}
+	</script>
+</html>
