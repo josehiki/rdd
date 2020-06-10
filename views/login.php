@@ -18,9 +18,9 @@
 		<h1>Inicia sesion</h1>
 		<form action="../app/loginController.php" method="post">
 			<span>Correo</span><br>
-			<input type="email" name="correo" required="" /><br>
+			<input type="email" name="correo" required="" placeholder="Ingrese el correo registrado" /><br>
 			<span>Contraseña</span><br>
-			<input type="password" name="contra" required="" /><br>
+			<input type="password" name="contra" required="" placeholder="Ingrese su contraseña" /><br>
 			<button>Iniciar</button>
 		</form>
 	</body>
