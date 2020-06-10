@@ -25,6 +25,7 @@
 	 		$tema = $_GET['tema'];
 	 		echo "<h2>$tema</h2>"; ?>
 		<form method="post" action="../app/addPreguntaController.php" enctype="multipart/form-data" onsubmit="return beforeSubmit()">
+			<?php echo "<input type='text' name='tema' style='display: none;' value='$tema'/>"; ?>
 			<span>Título de la pregunta</span><br>
 			<input type="text" name="pregunta" required="" placeholder="Ingrese su pregunta" /><br>
 			<!-- <span>Imagen de apoyo</span><br>
@@ -75,11 +76,11 @@
 
 		function setRadioValue(inputId){
 			var contenido = document.getElementById(inputId).value;
-			if (contenido.trim() != 0 || !!contenido)) {
+			if (contenido.trim() != 0 || !!contenido) {
 				document.getElementById(inputId+'R').style.display = 'inline';
 				document.getElementById(inputId+'R').value = contenido;				
 			}else{
-				document.getElementById(inputId+'R').style.display = 'inline';
+				document.getElementById(inputId+'R').style.display = 'none';
 				document.getElementById(inputId+'R').checked = false;
 			}
 		}//setRadioValue

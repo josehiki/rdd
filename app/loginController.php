@@ -1,14 +1,12 @@
 <?php
-	$servername = "localhost";
-	$username = "root";
-	$password = "";
-	$nameDB = "rdd";
+	include_once 'models/db.php';
+	$dbInfo = new db();
 
 	$correoUsuario = $_POST['correo'];
 	$contraUsuario = $_POST['contra'];
 	$response=false;
 
-	$conn = new mysqli($servername, $username, $password, $nameDB);
+	$conn = new mysqli($dbInfo->servername,$dbInfo->username, $dbInfo->password, $dbInfo->nameDB);
 	if ($conn->connect_error) 
 	{
 		die("Connection failed: " . $conn->connect_error);
