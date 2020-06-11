@@ -23,7 +23,7 @@
 			<p>Selecciona un tema del que quieras crear una nueva pregunta</p>
 			<ul>
 				<h2>Ciencias Naturales</h2>
-				<li><a href="addPregunta.php?tema=Regiones Naturales">Regiones Naturales</a></li>
+				<li><a href="addPregunta.php?materia=Ciencias Naturales&tema=Regiones Naturales">Regiones Naturales</a></li>
 				<li><a href="addPregunta.php?tema=Flora">Flora</a></li>
 				<li><a href="addPregunta.php?tema=Fauna">Fauna</a></li>
 				<li><a href="addPregunta.php?tema=Ejes Terrestres">Ejes Terrestres</a></li>

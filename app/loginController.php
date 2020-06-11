@@ -25,6 +25,7 @@
 		}
 	}
 
+	$conn->close();
 	if($response){
 		session_start();
 
@@ -39,4 +40,4 @@
 		die();
 	}
 
-	$conn->close();
+	
