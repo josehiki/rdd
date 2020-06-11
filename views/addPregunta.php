@@ -80,28 +80,58 @@
 				validacion = false;
 			}
 
-
-			if(	(opcA.trim() != opcB.trim()) && 
+			if(validacion) //si hay mas de una respuesta
+			{
+				if(	(opcA.trim() != opcB.trim()) && 
 				(opcA.trim() != opcC.trim()) && 
 				(opcA.trim() != opcD.trim()) && 
 				(opcB.trim() != opcC.trim()) && 
 				(opcB.trim() != opcD.trim()) && 
-				(opcC.trim() != opcD.trim())  ) //evalua que no haya dos respuestas iguales
-			{
-				validacion = true;
-			}
-			else
-			{
-				alert('No puede repetir la misma respuesta');
-				validacion = false;
-			}
+				(opcC.trim() != opcD.trim())  ) //evalua que no haya dos respuestas iguales cuando se envias 3-4 respuestas
+				{
+					validacion = true;
+				}
+				else // si se envian dos respuestas
+				{
+					//Hay que evaluar cuando solo hay dos respuestas, que sean diferentes y que las otras dos esten vacias
+					if( (opcA.trim() != opcB.trim()) && 
+						!(opcC.trim()) && !(opcD.trim()) ) //si a!=b y c-d vacias
+					{
+						validacion = true;
+					}else if( (opcA.trim() != opcC.trim()) &&
+							  !(opcB.trim()) && !(opcD.trim()) ) //si A!=C y B-d vacias
+					{
+						validacion = true;
+					}else if( (opcA.trim() != opcD.trim()) &&
+							  !(opcB.trim()) && !(opcC.trim()) ) //si A!=D y B-C vacias
+					{
+						validacion = true;
+					}else if( (opcB.trim() != opcC.trim()) &&
+							  !(opcA.trim()) && !(opcD.trim()) )//si B!=C y A-D vacias
+					{
+						validacion = true;
+					}else if( (opcB.trim() != opcD.trim()) &&
+							  !(opcA.trim()) && !(opcC.trim()) )//si B!=D y A-C vacias
+					{
+						validacion = true;
+					}else if( (opcC.trim() != opcD.trim()) &&
+							  !(opcA.trim()) && !(opcB.trim()) )//si C!=D y A-B vacias
+					{
+						validacion = true;
+					}else{
+						alert('No puede tener dos respuestas iguales');
+						validacion = false;
+					}
 
+				}
+			} //fin if si hay mas de una respuesta
+			
 			return validacion;
 		}//beforeSubmit
 
 		function setRadioValue(inputId){
 			var contenido = document.getElementById(inputId).value;
-			if (contenido.trim() != 0 && !!contenido) {
+			if (!!(contenido.trim())) {
 				document.getElementById(inputId+'R').style.display = 'inline';
 				document.getElementById(inputId+'R').value = contenido;				
 			}else{
