@@ -36,8 +36,9 @@
 			?>
 			<span>Título de la pregunta</span><br>
 			<input type="text" name="pregunta" required="" placeholder="Ingrese su pregunta" autocomplete="off"/><br>
-			<!-- <span>Imagen de apoyo</span><br>
-			<input type="file" name="contra"/><br> -->
+			<span>Imagen de apoyo</span><br>
+			<input type="file" name="imagen" id="imgFile" onchange="return imageValidation()"/><br>
+			<div id="imagePreview" ></div>
 			<span>Respuestas</span><br>
 			<span>a)</span>
 			<input id="a" type="text" name="opcA" onkeyup="setRadioValue(this.id)" autocomplete="off" />
@@ -140,10 +141,39 @@
 			}
 		}//setRadioValue
 
+		function imageValidation(){
+			var fileInput = document.getElementById('imgFile');
+			var filePath = fileInput.value;
+			var allowedExtensions = /(.jpg|.jpeg|.png)$/i;
+			var fileSize = fileInput.files[0].size;
+
+			if(!allowedExtensions.exec(filePath)){
+				alert('Solo se permiten archivos JPG, JPEG y PNG');
+				fileInput.value = '';
+				document.getElementById('imagePreview').innerHTML = null;
+				return false;
+			}else if(fileSize > (1014*1024*3))
+			{
+				alert('La imagen no debe ser mayor a 3 MB');
+				fileInput.value = '';
+				document.getElementById('imagePreview').innerHTML = null;
+				return false;
+			}else
+			{
+				//Muestra imagen previa
+				if (fileInput.files && fileInput.files[0]) {
+					var reader = new FileReader();
+					reader.onload = function(e) {
+						document.getElementById('imagePreview').innerHTML = '<img src="'+e.target.result+'" style="width: 200px;"/>';
+					};
+					reader.readAsDataURL(fileInput.files[0]);
+				}
+			}
+		}//imageValidation
 	</script>
 	<?php 
 		if (!empty($_GET['response'])) {
-			if($_GET['response'] == 0)
+			if($_GET['response'] != 1)
 			{
 				echo "<script type='text/javascript'>
 					alert('algo ha salido mal');
@@ -154,9 +184,9 @@
 				echo "<script type='text/javascript'>
 					alert('Pregunta creada con éxito');
 				</script>";
-				$_GET['response'] = null;
+				$_GET['response'] = 2;
 			}
 		}
-	 ?>
+	?>
  </body>
  </html>
