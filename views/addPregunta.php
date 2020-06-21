@@ -152,9 +152,9 @@
 				fileInput.value = '';
 				document.getElementById('imagePreview').innerHTML = null;
 				return false;
-			}else if(fileSize > (1014*1024*3))
+			}else if(fileSize > (1014*700))
 			{
-				alert('La imagen no debe ser mayor a 3 MB');
+				alert('La imagen no debe ser mayor a 650 KB');
 				fileInput.value = '';
 				document.getElementById('imagePreview').innerHTML = null;
 				return false;

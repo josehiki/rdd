@@ -23,16 +23,17 @@
 			<p>Selecciona un tema del que quieras crear una nueva pregunta</p>
 			<ul>
 				<h2>Ciencias Naturales</h2>
-				<li><a href="addPregunta.php?materia=Ciencias Naturales&tema=Regiones Naturales">Regiones Naturales</a></li>
-				<li><a href="addPregunta.php?tema=Flora">Flora</a></li>
-				<li><a href="addPregunta.php?tema=Fauna">Fauna</a></li>
-				<li><a href="addPregunta.php?tema=Ejes Terrestres">Ejes Terrestres</a></li>
-				<li><a href="">Mezclas</a></li>
-				<li><a href="">Sonido y Propagación</a></li>
+				<li><a href="detalleTema.php?materia=Ciencias Naturales&tema=Regiones Naturales">Regiones Naturales</a></li>
+				<li><a href="detalleTema.php?materia=Ciencias Naturales&tema=Flora">Flora</a></li>
+				<li><a href="detalleTema.php?materia=Ciencias Naturales&tema=Fauna">Fauna</a></li>
+				<li><a href="detalleTema.php?materia=Ciencias Naturales&tema=Ejes Terrestres">Ejes Terrestres</a></li>
+				<li><a href="detalleTema.php?materia=Ciencias Naturales&tema=Mezclas">Mezclas</a></li>
+				<li><a href="detalleTema.php?materia=Ciencias Naturales&tema=Sonido y Propagación">Sonido y Propagación</a></li>
+				
 				<h2>Geografía</h2>
-				<li><a href="">Capitales</a></li>
-				<li><a href="">Idiomas del mundo</a></li>
-				<li><a href="">Continentes</a></li>
+				<li><a href="detalleTema.php?materia=Geografía&tema=Capitales">Capitales</a></li>
+				<li><a href="detalleTema.php?materia=Geografía&tema=Idiomas del mundo">Idiomas del mundo</a></li>
+				<li><a href="detalleTema.php?materia=Geografía&tema=Continentes">Continentes</a></li>
 			</ul>
 		</div>
 	</body>

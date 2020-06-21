@@ -26,6 +26,7 @@
 	}
 
 	$conn->close();
+
 	if($response){
 		session_start();
 

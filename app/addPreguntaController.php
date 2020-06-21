@@ -1,5 +1,6 @@
 <?php 
 	include_once 'models/db.php';
+	
 	$dbInfo = new db();
 	$conn = new mysqli($dbInfo->servername,$dbInfo->username, $dbInfo->password, $dbInfo->nameDB);
 	if ($conn->connect_error) 
@@ -17,12 +18,7 @@
 
 	//Recibir la imagen si fue agregada
 	if (isset($_FILES['imagen'])) {
-		$imagenPregunta = $_FILES['imagen'];
-		$imgDir 	= $imagenPregunta['tmp_name']; //directorio temporal de la imagen
-		$fp = fopen($imgDir, "rb");
-		$contenido = fread($fp, filesize($imgDir));
-		$contenido = addslashes($contenido);
-		fclose($fp);
+		$contenido = base64_encode(file_get_contents($_FILES['imagen']['tmp_name']));
 		$imagen = true;
 	}
 
@@ -46,7 +42,7 @@
 	$respuestaC		= $_POST['res']; //respuesta correcta
 	$pregunta_id;	//auxiliar para el id de la pregunta creada
 	$respuesta_id;	//auxiliar para el id de la respuesta correcta creada
-
+	$error;
 	if($imagen)//si fue agregada una imagen
 	{
 		$sql = "insert into preguntas (materia,tema,titulo, imagen) values ('$materia', '$tema', '$titulo', '$contenido')";
@@ -80,23 +76,26 @@
 					}else
 					{
 						$response = 2;
+						$error = "respuestaC: ".$conn->error;
 						// echo "error: ".$conn->error;
 					}
 				}
 			}else // error al insertar la respuesta
 			{
 				$response = 2;
+				$error = "respuesta: ".$conn->error;
 				// echo "error: ".$conn->error;
 			}
 		}
 	}else //error al insertar la materia
 	{
 		$response = 2;
+		$error = "pregunta: ".$conn->error;
 		// echo "error: ".$conn->error;
 	}
 
 	$conn->close();
-
+	// echo $error;
 	// echo "$response";
 	header("Location:http://localhost/rdd/views/addPregunta.php?materia=$materia&tema=$tema&response=$response");
 	
