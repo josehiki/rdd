@@ -38,30 +38,24 @@
 			<input type="text" name="pregunta" required="" placeholder="Ingrese su pregunta" autocomplete="off"/><br>
 			<span>Imagen de apoyo</span><br>
 			<input type="file" name="imagen" id="imgFile" onchange="return imageValidation()"/><br>
-			<div id="imagePreview" ></div>
+			<!-- <div id="imagePreview" ></div> -->
+			<img id="imagePreview"  style="width: 200px;" src=""><br>
 			<span>Respuestas</span><br>
 			<span>a)</span>
 			<input id="a" type="text" name="opcA" onkeyup="setRadioValue(this.id)" autocomplete="off" />
-			<input type="radio" id="aR" name="res" name="" style="display: none;" required="" tabindex="-1"><br>
+			<input type="radio" id="aR" name="res" style="display: none;" required="" tabindex="-1"><br>
 			<span>b)</span>
 			<input id="b" type="text" name="opcB" onkeyup="setRadioValue(this.id)" autocomplete="off"/>
-			<input type="radio" id="bR" name="res" name="" style="display: none;" tabindex="-1"><br>
+			<input type="radio" id="bR" name="res" style="display: none;" tabindex="-1"><br>
 			<span>c)</span>
 			<input id="c" type="text" name="opcC" onkeyup="setRadioValue(this.id)" autocomplete="off"/>
-			<input type="radio" id="cR" name="res" name="" style="display: none;" tabindex="-1"><br>
+			<input type="radio" id="cR" name="res" style="display: none;" tabindex="-1"><br>
 			<span>d)</span>
 			<input id="d" type="text" name="opcD" onkeyup="setRadioValue(this.id)" autocomplete="off"/>
-			<input type="radio" id="dR" name="res" name="" style="display: none;" tabindex="-1"><br>
+			<input type="radio" id="dR" name="res" style="display: none;" tabindex="-1"><br>
 			<button>Crear</button>
 		</form>
 	</div>
-	<script type="text/javascript">
-		
-
-		
-
-		
-	</script>
 	<?php 
 		if (!empty($_GET['response'])) {
 			if($_GET['response'] != 1)

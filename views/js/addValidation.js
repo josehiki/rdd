@@ -10,6 +10,15 @@ function setRadioValue(inputId) //Activa o desactiva los radiobutton segun si ha
 	}
 }//setRadioValue
 
+function onCheckRadio(radioId){
+	var contenido = document.getElementById(radioId.slice(0,1)).value;
+	if (!!(contenido.trim())) {
+		document.getElementById(radioId).value = contenido;				
+	}else{
+		document.getElementById(radioId).checked = false;
+	}
+}//onCheckRadio
+
 function imageValidation() // Valida el tipo de archivo y el tamaño de la imagen 
 {
 	var fileInput = document.getElementById('imgFile');
@@ -34,7 +43,8 @@ function imageValidation() // Valida el tipo de archivo y el tamaño de la image
 		if (fileInput.files && fileInput.files[0]) {
 			var reader = new FileReader();
 			reader.onload = function(e) {
-				document.getElementById('imagePreview').innerHTML = '<img src="'+e.target.result+'" style="width: 200px;"/>';
+				document.getElementById('imagePreview').src = e.target.result;
+
 			};
 			reader.readAsDataURL(fileInput.files[0]);
 		}
