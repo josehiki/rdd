@@ -18,7 +18,8 @@
     $result = $conn->query($sql);  
 
     $preguntas; //auxiliar para imprimir las preguntas
-    if ($result->num_rows > 0) 
+
+    if ($result->num_rows > 0) // si hay registros de preguntas 
     {
         while($row = $result->fetch_assoc())
         {
@@ -28,11 +29,10 @@
             ];
             $preguntas[] = $auxP;
         }
-    }else
+    }else // no hay preguntas registradas
     {
         $preguntas = null;
     } 
-
     $conn->close();
 
     if($preguntas)
