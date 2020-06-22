@@ -20,7 +20,7 @@
             echo "<title>$tema</title>";
         ?>
         <link rel="stylesheet" type="text/css" href="css/estilos.css"/>
-        <link rel="stylesheet" type="text/css" href="css/miscelanea.css"/>
+        <link rel="stylesheet" type="text/css" href="css/miscelanea.css"/>  
     </head>
     <body>
         <div class="encabezado">
@@ -30,7 +30,7 @@
         </div>
         <div>
             <?php
-                echo "<h1>$materia</h1>";
+                echo "<h1 id='uno'>$materia</h1>";
                 echo "<h3>$tema</h3>";
 
                 if($preguntas)
@@ -43,7 +43,7 @@
                         echo "<td onclick='showModal($id)'>$titulo</td>";
                         echo "</tr>";
                     }
-                    echo "<table>";
+                    echo "</table>";
                 }else
                 {
                     echo "<h4>No hay preguntas registradas</h4>";
@@ -58,11 +58,20 @@
         </div>
         <div id="myModal" class="modal">
             <div class="modal-content" id="modalContent">
-                <span class="close" onclick="hideModal()">&times;</span>
-                <p id="label"></p>
             </div>
         </div>
-        <script>
+        <div id="confirmationModal" class="modal-confirmation">
+            <div class="modal-confirmation-content" id="confirmationContent">
+                <span class='close' onclick='hideConfirmationModal()'>&times;</span>
+                <h3>¿Seguro desea eliminar esta pregunta?</h3>
+                <button onclick="hideConfirmationModal()">Cancelar</button>
+                <button onclick="callEliminarPregunta()">Eliminar</button>
+            </div>
+        </div>
+        
+    </body>
+    <script>
+        var preguntaId;
             function showModal(id)
             {
                 document.getElementById("myModal").style.display = "block";
@@ -79,11 +88,37 @@
             {
                 document.getElementById("myModal").style.display = "none";
             }
-            window.onclick = function(event) {
+            window.onclick = function(event) 
+            {
                 if (event.target == document.getElementById("myModal")) {
                     document.getElementById("myModal").style.display = "none";
                 }
             }
+            function showConfirmationModal(id)
+            {
+                document.getElementById("confirmationModal").style.display = "block";
+                preguntaId = id;
+            }
+            function hideConfirmationModal()
+            {
+                document.getElementById("confirmationModal").style.display = "none";
+            }
+            
+            function callEliminarPregunta()
+            {
+                id=preguntaId;
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        location.reload();
+                        // document.getElementById("uno").innerHTML = this.responseText;                        
+                        alert(this.responseText);
+                    }
+                };
+                xmlhttp.open("GET", "../app/eliminaPregunta.php?id="+id, true);
+                xmlhttp.send();
+
+                
+            }
         </script>
-    </body>
  </html>

@@ -53,6 +53,7 @@
         $respuestaC = $row['respuesta_id'];
     }
 
+    echo "<span class='close' onclick='hideModal()'>&times;</span>";
     echo "<h1>$titulo</h1>";
     if($imagen){
         echo "<img width='200' src='../app/loadImage.php?id=$preguntaId' alt='img'>";
@@ -83,5 +84,8 @@
         
     }
     echo "</table>";
+    echo "<a onclick=''>Editar</a>"; 
+    echo "<a onclick='showConfirmationModal($preguntaId)'>Eliminar</a>";
+    
     
     $conn->close();
