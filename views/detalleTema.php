@@ -8,8 +8,6 @@
     $materia = $_GET['materia'];
     $tema = $_GET['tema'];
     
-    require_once '../app/temaController.php';
-    $preguntas = loadPreguntas($tema);
  ?>
  <!DOCTYPE html>
  <html lang="en">
@@ -22,7 +20,7 @@
         <link rel="stylesheet" type="text/css" href="css/estilos.css"/>
         <link rel="stylesheet" type="text/css" href="css/miscelanea.css"/>  
     </head>
-    <body>
+    <body onload="loadPreguntas()">
         <div class="encabezado">
             <a class="gestionarPreguntas" href="../app/logoutController.php" >
                 Cerrar sesión
@@ -32,23 +30,8 @@
             <?php
                 echo "<h1 id='uno'>$materia</h1>";
                 echo "<h3>$tema</h3>";
-
-                if($preguntas)
-                {
-                    echo "<table>";
-                    foreach ($preguntas as $pregunta) {
-                        $titulo = $pregunta['titulo'];
-                        $id = $pregunta['id'];
-                        echo "<tr>";
-                        echo "<td onclick='showModal($id)'>$titulo</td>";
-                        echo "</tr>";
-                    }
-                    echo "</table>";
-                }else
-                {
-                    echo "<h4>No hay preguntas registradas</h4>";
-                }
             ?>
+            <div id="listaPreguntas"></div>
         </div>
         <div>
             <br>
@@ -70,8 +53,23 @@
         </div>
         
     </body>
+    <?php
+        echo "<script>var temaJs='$tema'</script>";
+    ?>
     <script>
         var preguntaId;
+            function loadPreguntas()
+            {
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("listaPreguntas").innerHTML = this.responseText;
+                    }
+                };
+                xmlhttp.open("GET", "../app/temaController.php?tema="+temaJs, true);
+                xmlhttp.send(); 
+            }
+
             function showModal(id)
             {
                 document.getElementById("myModal").style.display = "block";
@@ -110,9 +108,11 @@
                 var xmlhttp = new XMLHttpRequest();
                 xmlhttp.onreadystatechange = function() {
                     if (this.readyState == 4 && this.status == 200) {
-                        location.reload();
-                        // document.getElementById("uno").innerHTML = this.responseText;                        
+                        hideConfirmationModal();
+                        hideModal();
+                        loadPreguntas();
                         alert(this.responseText);
+
                     }
                 };
                 xmlhttp.open("GET", "../app/eliminaPregunta.php?id="+id, true);

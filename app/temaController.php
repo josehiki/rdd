@@ -2,34 +2,51 @@
     include_once 'models/db.php';
 	
     
-
-    function loadPreguntas($tema)
+    $dbInfo = new db();
+    $conn = new mysqli($dbInfo->servername,$dbInfo->username, $dbInfo->password, $dbInfo->nameDB);
+    if ($conn->connect_error) 
     {
-        $dbInfo = new db();
-        $conn = new mysqli($dbInfo->servername,$dbInfo->username, $dbInfo->password, $dbInfo->nameDB);
-        if ($conn->connect_error) 
-        {
-            die("La conexión con la db fallo: " . $conn->connect_error);
-        } 
+        die("La conexión con la db fallo: " . $conn->connect_error);
+    } 
 
-        $sql = "SELECT * FROM preguntas WHERE tema = '$tema'";
-        $result = $conn->query($sql);	
-        $preguntas; //auxiliar para imprimir las preguntas
-        if ($result->num_rows > 0) 
-        {
-            while($row = $result->fetch_assoc())
-            {
-                $auxP = [
-                    'id' => $row['id'],
-                    'titulo' => $row['titulo']
-                ];
-                $preguntas[] = $auxP;
-            }
-            return $preguntas;
-        }else
-        {
-            return false;
-        } 
+    $tema;
+    if(isset($_GET['tema'])){
+        $tema = $_GET['tema'];
+    }
 
-        $conn->close();
-    }// loadPreguntas
+    $sql = "SELECT * FROM preguntas WHERE tema = '$tema'";
+    $result = $conn->query($sql);  
+
+    $preguntas; //auxiliar para imprimir las preguntas
+    if ($result->num_rows > 0) 
+    {
+        while($row = $result->fetch_assoc())
+        {
+            $auxP = [
+                'id' => $row['id'],
+                'titulo' => $row['titulo']
+            ];
+            $preguntas[] = $auxP;
+        }
+    }else
+    {
+        $preguntas = null;
+    } 
+
+    $conn->close();
+
+    if($preguntas)
+    {
+        echo "<table>";
+        foreach ($preguntas as $pregunta) {
+            $titulo = $pregunta['titulo'];
+            $id = $pregunta['id'];
+            echo "<tr>";
+            echo "<td onclick='showModal($id)'>$titulo</td>";
+            echo "</tr>";
+        }
+        echo "</table>";
+    }else
+    {
+        echo "<h4>No hay preguntas registradas</h4>";
+    }
