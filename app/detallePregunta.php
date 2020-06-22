@@ -17,6 +17,8 @@
     $imagen;
     $respuestas; 
     $respuestaC; //ID de la respuesta correcta
+    $materia;
+    $tema;
 
     //Consulta de la pregunta
     $sql = "SELECT * FROM preguntas where id=$preguntaId";
@@ -26,6 +28,8 @@
         $row = $result->fetch_assoc();
         $titulo = $row['titulo'];
         $imagen = $row['imagen']? base64_decode($row['imagen']) : false;
+        $materia = $row['materia'];
+        $tema = $row['tema'];
     }
     
     //Consulta de las respuestas con el id de la pregunta
@@ -84,7 +88,7 @@
         
     }
     echo "</table>";
-    echo "<a onclick=''>Editar</a>"; 
+    echo "<a href='editPregunta.php?materia=$materia&tema=$tema&id=$preguntaId'>Editar</a>"; 
     echo "<a onclick='showConfirmationModal($preguntaId)'>Eliminar</a>";
     
     

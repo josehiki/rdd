@@ -12,7 +12,7 @@
  <!DOCTYPE html>
  <html>
  <head>
- 	<title>Alta preguntas</title>
+ 	<title>Nueva pregunta</title>
 	<link rel="stylesheet" type="text/css" href="css/estilos.css"/>
 
  </head>
