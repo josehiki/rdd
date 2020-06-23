@@ -2,7 +2,7 @@
 	session_start();
 	if(!isset($_SESSION['nombreUsuario']))
 	{
-		header("Location:http://localhost/rdd/views/login.php");
+		header("Location:login.php");
 		die();
 	}
  ?>

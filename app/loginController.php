@@ -32,12 +32,12 @@
 
 		$_SESSION['nombreUsuario'] = $nombreUsuario;
 		
-		header("Location:http://localhost/rdd/views/dash.php");
+		header("Location:../views/dash.php");
 		// die();
 	}else
 	{
 		session_destroy();
-		header("Location:http://localhost/rdd/views/login.php?response=0");
+		header("Location:http:../views/login.php?response=0");
 		die();
 	}
 

@@ -97,7 +97,7 @@
 	$conn->close();
 	// echo $error;
 	// echo "$response";
-	header("Location:http://localhost/rdd/views/addPregunta.php?materia=$materia&tema=$tema&response=$response");
+	header("Location:../views/addPregunta.php?materia=$materia&tema=$tema&response=$response");
 	
 
 	
