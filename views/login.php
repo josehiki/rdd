@@ -2,7 +2,7 @@
 	session_start();
 	if(isset($_SESSION['nombreUsuario']))
 	{
-		header("Location:http://localhost/rdd/views/dash.php");
+		header("Location:http://18.222.24.254/rdd/views/dash.php");
 		die();
 	}
  ?>
