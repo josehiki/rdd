@@ -2,7 +2,7 @@
 	session_start();
 	if(!isset($_SESSION['nombreUsuario']))
 	{
-		header("Location:http://localhost/rdd/views/login.php");
+		header("Location:http://18.222.24.254/rdd/views/login.php");
 		die();
 	}
 
@@ -18,7 +18,7 @@
  </head>
  <body>
  	<div class="encabezado">
-		<a class="gestionarPreguntas" href="../app/logoutController.php" >
+		<a class="gestionarPreguntas" href="http://18.222.24.254/rdd/app/logoutController.php" >
 			Cerrar sesión
 		</a>
 	</div>
