@@ -121,4 +121,21 @@
                 
             }
         </script>
+        <?php 
+            if (!empty($_GET['response'])) {
+                if($_GET['response'] != 1)
+                {
+                    echo "<script type='text/javascript'>
+                        alert('algo ha salido mal');
+                    </script>";
+                    $_GET['response'] = null;
+                }else if($_GET['response'] == 1)
+                {
+                    echo "<script type='text/javascript'>
+                        alert('Pregunta editada con éxito');
+                    </script>";
+                    $_GET['response'] = 2;
+                }
+            }
+        ?>
  </html>

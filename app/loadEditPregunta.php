@@ -61,13 +61,21 @@
     $inputName 		= ['A', 'B', 'C', 'D'];
 
 
-    echo "<form method='post' action='../app/' enctype='multipart/form-data' onsubmit='return beforeSubmit()''>";
-    	echo "<span>Título de la pregunta</span><br>";
+    echo "<form method='post' action='../app/editPreguntaController.php' enctype='multipart/form-data' onsubmit='return beforeSubmit()''>";
+        echo "<input name='idPregunta' style='display: none;' value='$preguntaId' />";
+        echo "<input name='materia' style='display: none;' value='$materia' />";
+    	echo "<input name='tema' style='display: none;' value='$tema' />";
+        echo "<span>Título de la pregunta</span><br>";
     	echo "<input type='text' name='pregunta' required='' placeholder='Ingrese su pregunta' autocomplete='off' value='$titulo' /><br>";
     	echo "<span>Imagen de apoyo</span><br>";
-    	echo "<input type='file' name='imagen' id='imgFile' onchange='return imageValidation()'/><br>";
-        echo "<img id='imagePreview'  style='width: 200px;' src='../app/loadImage.php?id=$preguntaId' /><br>";
-		
+    	echo "<input type='file' name='imagenEdit' id='imgFile' onchange='return imageValidationEdit()'/><br>";
+        if ($imagen) {
+            echo "<img id='imagePreview'  style='width: 200px;' src='../app/loadImage.php?id=$preguntaId' /><br>";            
+        }else{
+            echo "<img id='imagePreview'  style='width: 200px;' src='' /><br>";
+        }		
+        echo "<span>Eliminar imagenes</span>";
+        echo "<input type='checkbox' id='checkImage' onclick='eraseImage($preguntaId)' name='checkImagen' value='true'/> <br>";
 		echo "<span>Respuestas</span><br>";
 		echo "<table>";
 		for ($i=0; $i <4 ; $i++) // imprimir las 4 espacios para respuestas 
@@ -83,13 +91,13 @@
 				echo "<tr>";
 			}
 			echo "<span>$auxInputLabel</span>";
-			echo "<input id='$auxInputId' type='text' name='opc$auxInputName'  autocomplete='off' value='$auxName' />";
+			echo "<input id='$auxInputId' type='text' name='opc$auxInputName'  autocomplete='off' onkeyup='setRadioValue(this.id)' value='$auxName' />";
 			if($respuestaC == $auxId) // si es la respuesta correcta imprime el radio button seleccionado
 			{
-				echo "<input type='radio' id='aR' name='res' required='' tabindex='-1' checked='true' onclick='onCheckRadio(this.id' ><br>";
+				echo "<input type='radio' id='aR' name='res' required='' tabindex='-1' checked='true' onclick='onCheckRadio(this.id' value='$auxName' ><br>";
 			}else // no es la respuesta imprime normal
 			{
-				echo "<input type='radio' id='$auxInputId"."R' name='res' required='' tabindex='-1' onclick='onCheckRadio(this.id)'><br>";
+				echo "<input type='radio' id='$auxInputId"."R' name='res' required='' tabindex='-1' onclick='onCheckRadio(this.id)' value='$auxName'><br>";
 			}
 
 		}

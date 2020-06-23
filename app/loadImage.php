@@ -22,4 +22,8 @@
         $row = $result->fetch_assoc();
         $imagen = base64_decode($row['imagen']);
     }
-    echo $imagen;
+    if ($imagen) {
+        echo $imagen;
+    }else{
+        echo null;
+    }

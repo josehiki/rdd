@@ -51,6 +51,57 @@ function imageValidation() // Valida el tipo de archivo y el tamaño de la image
 	}
 }//imageValidation
 
+function imageValidationEdit() // Valida el tipo de archivo y el tamaño de la imagen 
+{
+	var fileInput = document.getElementById('imgFile');
+	var filePath = fileInput.value;
+	var allowedExtensions = /(.jpg|.jpeg|.png)$/i;
+	var fileSize = fileInput.files[0].size;
+
+	if(!allowedExtensions.exec(filePath)){
+		alert('Solo se permiten archivos JPG, JPEG y PNG');
+		fileInput.value = '';
+		document.getElementById('imagePreview').innerHTML = null;
+		return false;
+	}else if(fileSize > (1014*700))
+	{
+		alert('La imagen no debe ser mayor a 650 KB');
+		fileInput.value = '';
+		document.getElementById('imagePreview').innerHTML = null;
+		return false;
+	}else
+	{
+		//Muestra imagen previa
+		if (fileInput.files && fileInput.files[0]) {
+			var reader = new FileReader();
+			reader.onload = function(e) {
+				document.getElementById('checkImage').checked = false;
+				document.getElementById('imagePreview').style.display = 'block';	
+				document.getElementById('imagePreview').src = e.target.result;
+
+			};
+			reader.readAsDataURL(fileInput.files[0]);
+		}
+	}
+}//imageValidation
+
+function eraseImage(id){
+	var check = document.getElementById('checkImage');
+	var fileInput = document.getElementById('imgFile');
+	var img = document.getElementById('imagePreview');
+	if(check.checked == false)
+	{
+		img.src = '../app/loadImage.php?id='+id;
+		img.style.display = 'block';				
+	}else
+	{
+		document.getElementById('imagePreview').style.display = 'none';
+		fileInput.value = '';
+		alert('Si seleccionas la casilla la pregunta quedará sin imagen')		
+	}
+}
+
+
 function beforeSubmit() // valida que las respuestas tengan un formato correcto antes de enviar el formulario
 {
 	var validacion;
