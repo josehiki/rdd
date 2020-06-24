@@ -17,6 +17,9 @@
 			<a class="gestionarPreguntas" href="../app/logoutController.php" >
 				Cerrar sesión
 			</a>
+			<a class="gestionarPreguntas" href="seleccionaTema.php" >
+                Jugar
+            </a>
 		</div>
 		<div>
 			<h1>Materias</h1>
