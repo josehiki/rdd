@@ -16,7 +16,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Juego</title>
 		<link rel="stylesheet" type="text/css" href="css/estilos.css"/>
-
+        <link rel="stylesheet" type="text/css" href="css/miscelanea.css"/>  
     </head>
     <body onload="cargaPreguntas()">
         <div class="encabezado">
@@ -24,22 +24,57 @@
 				Cerrar sesión
 			</a>
 		</div>
+        <div id="div-pregunta">
+            
+        </div>
     </body>
     <?php
         echo "<script>var temaJs='$tema'</script>";
     ?>
     <script type="text/javascript">
+        var puntosRojos = 0;
+        var puntosAzul  = 0;
+        var ronda       = 0;
+        var turno       = 'rojo';
 
         function cargaPreguntas()
         {
             var xmlhttp = new XMLHttpRequest();
             xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                alert(this.responseText);
-            }
+                if (this.readyState == 4 && this.status == 200) {
+                    var preguntasId = JSON.parse(this.responseText);   
+                    iniciaJuego(preguntasId);
+                }
             };
-            xmlhttp.open("GET", "../app/loadPreguntasJuego.php?tema="+temaJs, true);
+            xmlhttp.open("GET", "../app/getPreguntasJuego.php?tema="+temaJs, true);
             xmlhttp.send();
+        }
+
+        function iniciaJuego(preguntasId){
+            alert(preguntasId);
+            siguienteTurno = false;
+            do
+            {
+                if(turno == 'rojo')
+                {
+                    var xmlhttp = new XMLHttpRequest();
+                    xmlhttp.onreadystatechange = function() {
+                        if (this.readyState == 4 && this.status == 200) {
+                            document.getElementById("div-pregunta").innerHTML = this.responseText;
+                        }
+                    };
+                    xmlhttp.open("GET", "../app/loadPreguntaJuego.php?id="+preguntasId[ronda]+"&turno="+turno, true);
+                    xmlhttp.send();
+                    
+                    turno == 'azul';
+
+                }else if(turno == 'azul')
+                {
+
+                    turno == 'rojo';
+                }
+                ronda++;
+            }while(ronda < 6 && siguienteTurno == true);
         }
     </script>
 </html>
