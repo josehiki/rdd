@@ -56,7 +56,7 @@
         </div>
         <div>
             <a href="seleccionaTema.php">Volver a jugar</a>
-            <a href="Dash.php">Pantalla Principal</a>
+            <a href="dash.php">Pantalla Principal</a>
         </div>
     </body>
 </html>
