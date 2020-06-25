@@ -20,7 +20,7 @@
             ?>
         </div>
         <div>
-            <a href="../index.html">Pantalla Principal</a>
+            <a href="../">Pantalla Principal</a>
         </div>
     </body>
 </html>
