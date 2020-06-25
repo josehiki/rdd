@@ -4,6 +4,7 @@
 
     include_once '../app/getPreguntasJuego.php';
     $preguntasLoaded = getPreguntas();
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,6 +33,12 @@
     ?>
     <script type="text/javascript">
         var puntos = ronda = 0;
+        if(preguntas == null){
+            alert('no hay suficientes preguntas');
+            ronda = 6;
+            window.location.replace('../');
+        }
+
         function cargaPregunta(){
             var row1 = document.getElementById("row-1");
             var row2 = document.getElementById("row-2");
