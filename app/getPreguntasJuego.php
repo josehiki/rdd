@@ -10,7 +10,7 @@
             die("La conexión con la db fallo: " . $conn->connect_error);
         } 
 
-        $tema       = $_GET['tema'];;
+        $tema       = $_GET['tema'];
         $preguntasId;
         $auxId; //auxiliar para los id de TODAS las preguntas
         $preguntas;
