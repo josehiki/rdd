@@ -58,11 +58,11 @@
     }
 
     echo "<span class='close' onclick='hideModal()'>&times;</span>";
-    echo "<h1>$titulo</h1>";
+    echo "<br><h1 class='titulo-pregunta'>$titulo</h1>";
     if($imagen){
-        echo "<img width='200' src='../app/loadImage.php?id=$preguntaId' alt='img'>";
+        echo "<img class='imagen-pregunta' src='../app/loadImage.php?id=$preguntaId' alt='img'>";
     }
-    echo "<table>";
+    echo "<table class='table-detalle-pregunta'>";
     $i=0;
     foreach ($respuestas as $respuesta) {
         
@@ -87,9 +87,9 @@
         }
         
     }
-    echo "</table>";
-    echo "<a href='editPregunta.php?materia=$materia&tema=$tema&id=$preguntaId'>Editar</a>"; 
-    echo "<a onclick='showConfirmationModal($preguntaId)'>Eliminar</a>";
+    echo "</table><br><br>";
+    echo "<a class='button-editar' href='editPregunta.php?materia=$materia&tema=$tema&id=$preguntaId'>Editar</a>"; 
+    echo "<a class='button-eliminar' onclick='showConfirmationModal($preguntaId)'>Eliminar</a>";
     
     
     $conn->close();

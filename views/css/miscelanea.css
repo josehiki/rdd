@@ -14,10 +14,11 @@
 /* Modal Content/Box */
 .modal-content {
     background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
+    margin: 5% auto; /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
     width: 80%; /* Could be more or less, depending on screen size */
+    text-align: center;
 }
 
 /* The Close Button */
@@ -53,6 +54,7 @@
     padding: 20px;
     border: 1px solid #888;
     width: 50%; /* Could be more or less, depending on screen size */
+    text-align: center;
 }
 
   
@@ -67,12 +69,21 @@
 .boton-to-a{
     border: 0;
     background-color: white;
+    cursor: pointer;
 }
 
 .titulos{
     text-align: center;
     margin-top: .5cm;
     margin-bottom: 0;
+}
+
+.titulo-pregunta{
+    text-align: center;
+}
+.imagen-pregunta{
+    height: 6cm;
+    margin: auto;
 }
 
 .arrow{

@@ -51,8 +51,8 @@
             <div class="modal-confirmation-content" id="confirmationContent">
                 <span class='close' onclick='hideConfirmationModal()'>&times;</span>
                 <h3>¿Seguro desea eliminar esta pregunta?</h3>
-                <button onclick="hideConfirmationModal()">Cancelar</button>
-                <button onclick="callEliminarPregunta()">Eliminar</button>
+                <button class="button-editar-c" onclick="hideConfirmationModal()">Cancelar</button>
+                <button class="button-eliminar-c" onclick="callEliminarPregunta()">Eliminar</button>
             </div>
         </div>
         

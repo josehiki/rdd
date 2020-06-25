@@ -183,4 +183,53 @@ ul li:hover{
 	background-color: #2ab54a;
 	cursor: pointer;
 }
+.pregunta-td{
+	border: 2px solid #c2c2c2;
+	border-radius: 5px;
+	padding: .6em .5em;
+	text-align: justify;
+}
+.pregunta-tr{
+	height: .2cm;
+}
 
+.table-detalle-pregunta{
+	width: 100%;
+	margin: .5cm 0;
+}
+.table-detalle-pregunta td{
+	padding: 0.3cm;
+    font-size: 1.1em;
+}
+.button-editar{
+	padding: .3cm;
+    border: 1px solid #333;
+    border-radius: 5px;
+    margin: 0 .5cm;
+}
+.button-eliminar{
+	padding: .3cm;
+    border: 1px solid #d50000;
+	background-color: #d50000;
+	color: white;
+    border-radius: 5px;
+	margin: 0 .5cm;
+	cursor: pointer;
+}
+.button-editar-c{
+	padding: .3cm;
+    border: 1px solid #333;
+    border-radius: 5px;
+	margin: 0 .5cm;
+	background-color: white;
+    cursor: pointer;
+}
+.button-eliminar-c{
+	padding: .3cm;
+    border: 1px solid #d50000;
+	background-color: #d50000;
+	color: white;
+    border-radius: 5px;
+	margin: 0 .5cm;
+	cursor: pointer;
+}

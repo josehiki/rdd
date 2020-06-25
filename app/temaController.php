@@ -42,8 +42,9 @@
             $titulo = $pregunta['titulo'];
             $id = $pregunta['id'];
             echo "<tr>";
-            echo "<td onclick='showModal($id)'>$titulo</td>";
+            echo "<td onclick='showModal($id)' class='pregunta-td'>$titulo</td>";
             echo "</tr>";
+            echo "<tr class='pregunta-tr'></tr>";
         }
         echo "</table>";
     }else
