@@ -8,6 +8,10 @@
     $tema = $_GET['tema'];
     $equipoRojo =  $_SESSION['equipoRojo'];
     $equipoAzul =  $_SESSION['equipoAzul'];
+
+    include_once '../app/getPreguntasJuego.php';
+
+    $preguntasLoaded = getPreguntas();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,63 +22,96 @@
 		<link rel="stylesheet" type="text/css" href="css/estilos.css"/>
         <link rel="stylesheet" type="text/css" href="css/miscelanea.css"/>  
     </head>
-    <body onload="cargaPreguntas()">
+    <body onload="cargaPregunta()">
         <div class="encabezado">
 			<a class="gestionarPreguntas" href="../app/logoutController.php" >
 				Cerrar sesión
 			</a>
 		</div>
-        <div id="div-pregunta">
-            
+        <div>
+            <h2 id="marcadorRojo">Puntos equipo Rojo: 0</h2>
+            <h2 id="marcadorAzul">Puntos equipo Azul: 0</h2>
+        </div>
+        <div id="divPregunta">
+            <h2 id="colorEquipo"></h2>
+            <h1 id="tituloPregunta"></h1>
+            <img id= "imagenPregunta" width="200" />
+            <table id="tablePregunta">
+                <tr id="row-1"></tr>
+                <tr id="row-2"></tr>
+            </table> 
         </div>
     </body>
     <?php
-        echo "<script>var temaJs='$tema'</script>";
+        echo "<script>var preguntas= JSON.parse('$preguntasLoaded')</script>";
     ?>
     <script type="text/javascript">
-        var puntosRojos = 0;
-        var puntosAzul  = 0;
-        var ronda       = 0;
-        var turno       = 'rojo';
+        var puntosRojo = puntosAzul = ronda = 0;
+        var turno = 'rojo';
 
-        function cargaPreguntas()
-        {
-            var xmlhttp = new XMLHttpRequest();
-            xmlhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                    var preguntasId = JSON.parse(this.responseText);   
-                    iniciaJuego(preguntasId);
+        function cargaPregunta(){
+            var row1 = document.getElementById("row-1");
+            var row2 = document.getElementById("row-2");
+            row1.innerHTML = '';
+            row2.innerHTML = '';
+            
+            document.getElementById("colorEquipo").innerHTML = "Equipo "+turno;
+            document.getElementById("tituloPregunta").innerHTML = preguntas[ronda]['titulo'];
+            document.getElementById("imagenPregunta").src = "../app/loadImage.php?id="+preguntas[ronda]['id'];
+            if(document.getElementById("imagenPregunta").src == null){
+                document.getElementById("imagenPregunta").style.display = 'none';
+            }
+            for (var i = 0; i < preguntas[ronda]['respuestas'].length; i++) 
+            {
+                var nuevoTd = document.createElement("td");
+                var button = document.createElement("button");
+                button.innerHTML = preguntas[ronda]['respuestas'][i];
+                button.value = preguntas[ronda]['respuestas'][i];
+                button.setAttribute('onclick','tiroJugador(this.value , this.id)');
+                button.setAttribute('id',i+'td');
+                nuevoTd.appendChild(button);
+                if(i < 2){
+                    document.getElementById("row-1").appendChild(nuevoTd);
+                }else{
+                    document.getElementById("row-2").appendChild(nuevoTd);
                 }
-            };
-            xmlhttp.open("GET", "../app/getPreguntasJuego.php?tema="+temaJs, true);
-            xmlhttp.send();
-        }
+            }
+        } // cargaPregunta
 
-        function iniciaJuego(preguntasId){
-            alert(preguntasId);
-            siguienteTurno = false;
-            do
+        function tiroJugador(value, id){
+            if(value == preguntas[ronda]['resC'])
             {
                 if(turno == 'rojo')
                 {
-                    var xmlhttp = new XMLHttpRequest();
-                    xmlhttp.onreadystatechange = function() {
-                        if (this.readyState == 4 && this.status == 200) {
-                            document.getElementById("div-pregunta").innerHTML = this.responseText;
-                        }
-                    };
-                    xmlhttp.open("GET", "../app/loadPreguntaJuego.php?id="+preguntasId[ronda]+"&turno="+turno, true);
-                    xmlhttp.send();
-                    
-                    turno == 'azul';
-
-                }else if(turno == 'azul')
-                {
-
-                    turno == 'rojo';
-                }
-                ronda++;
-            }while(ronda < 6 && siguienteTurno == true);
+                    document.getElementById(id).style.backgroundColor= "green";
+                    puntosRojo++;
+                }else{
+                    document.getElementById(id).style.backgroundColor= "green";
+                    puntosAzul++;
+                }                
+            }
+            document.getElementById("marcadorRojo").innerHTML = "Puntos equipo Rojo: "+puntosRojo;
+            document.getElementById("marcadorAzul").innerHTML = "Puntos equipo Azul: "+puntosAzul;
+            turno = turno == 'rojo' ? 'azul' : 'rojo';
+            ronda++;
+            if(ronda < 6){
+                setTimeout(function(){cargaPregunta()},1000);
+            }else{
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        window.location.replace('mostrarMarcador.php');
+                    }
+                };
+                xmlhttp.open("GET", "../app/guardarMarcador.php?pRojo="+puntosRojo+"&pAzul="+puntosAzul, true);
+                xmlhttp.send();
+            }
         }
+
+
+    // alert(preguntas[0]['id']);
+    // alert(preguntas[0]['titulo']);
+    // alert(preguntas[0]['respuestas'].length);
+    // alert(preguntas[0]['resC']);
     </script>
 </html>
