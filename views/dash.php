@@ -11,6 +11,7 @@
 	<head>
 		<title>Dash</title>
 		<link rel="stylesheet" type="text/css" href="css/estilos.css"/>
+		<link rel="stylesheet" type="text/css" href="css/miscelanea.css"/>
 	</head>
 	<body>
 		<div class="encabezado">
@@ -21,9 +22,9 @@
                 Jugar
             </a>
 		</div>
-		<div>
-			<h1>Materias</h1>
-			<p>Selecciona un tema del que quieras crear una nueva pregunta</p>
+		<div class="contenedor-div">
+			<h1 class="titulos">Gestión de preguntas</h1>
+			<p>Selecciona un tema para mostrar sus preguntas y sus opciones</p>
 			<ul>
 				<h2>Ciencias Naturales</h2>
 				<li><a href="detalleTema.php?materia=Ciencias Naturales&tema=Regiones Naturales">Regiones Naturales</a></li>

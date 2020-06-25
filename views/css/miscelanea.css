@@ -61,6 +61,7 @@
     font-size: 1em;
     border-radius: 8px;
     border: 1px solid #bdbdbd;
+    padding-left: .1cm;
 }
 
 .boton-to-a{
@@ -69,6 +70,7 @@
 }
 
 .titulos{
+    text-align: center;
     margin-top: .5cm;
     margin-bottom: 0;
 }

@@ -13,6 +13,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Selecciona un tema</title>
 		<link rel="stylesheet" type="text/css" href="css/estilos.css"/>
+		<link rel="stylesheet" type="text/css" href="css/miscelanea.css"/>
     </head>
     <body>
         <div class="encabezado">
@@ -20,8 +21,8 @@
 				Cerrar sesión
 			</a>
 		</div>
-        <div>
-            <h1>¡Vamos a jugar!</h1>
+        <div class="contenedor-div">
+            <h1 class="titulos">¡Vamos a jugar!</h1>
             <p>Primero selecciona un tema para jugar</p>
             <ul>
             <h2>Ciencias Naturales</h2>
