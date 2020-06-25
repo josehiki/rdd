@@ -49,6 +49,12 @@
         var puntosRojo = puntosAzul = ronda = 0;
         var turno = 'rojo';
 
+        if(preguntas == null){
+            alert('no hay suficientes preguntas (min. 6)');
+            ronda = 6;
+            window.location.replace('seleccionaTema.php');
+        }
+
         function cargaPregunta(){
             var row1 = document.getElementById("row-1");
             var row2 = document.getElementById("row-2");

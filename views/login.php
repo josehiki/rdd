@@ -11,18 +11,26 @@
 	<head>
 		<title>Login</title>
 		<link rel="stylesheet" type="text/css" href="css/estilos.css"/>
+		<link rel="stylesheet" type="text/css" href="css/miscelanea.css"/>
 	</head>
 	<body>
-		<div class="encabezado">
+		<div class="encabezado"></div>
+
+
+		<div class="contenedor">
+			<div class="login-form">
+			<h1 class="">Inicio de sesi&oacuten</h1>
+				<form action="../app/loginController.php" method="post">
+					<span>Correo</span>
+					<input type="email" class="input-text" name="correo" required="" placeholder="Ingrese el correo registrado" /><br><br>
+					<span>Contraseña</span>
+					<input type="password" class="input-text" name="contra" required="" placeholder="Ingrese su contraseña" /><br><br>
+					<button class="boton-to-a">Iniciar</button>
+				</form>
+			</div>
 		</div>
-		<h1>Inicia sesion</h1>
-		<form action="../app/loginController.php" method="post">
-			<span>Correo</span><br>
-			<input type="email" name="correo" required="" placeholder="Ingrese el correo registrado" /><br>
-			<span>Contraseña</span><br>
-			<input type="password" name="contra" required="" placeholder="Ingrese su contraseña" /><br>
-			<button>Iniciar</button>
-		</form>
+	
+
 	</body>
 	<?php  
 		if (!empty($_GET))

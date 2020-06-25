@@ -56,7 +56,19 @@
 }
 
   
-.border-green{
-    border: 2px solid green;
-    background-color: green;
+.input-text{
+    height: 2em;
+    font-size: 1em;
+    border-radius: 8px;
+    border: 1px solid #bdbdbd;
+}
+
+.boton-to-a{
+    border: 0;
+    background-color: white;
+}
+
+.titulos{
+    margin-top: .5cm;
+    margin-bottom: 0;
 }

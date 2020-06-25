@@ -4,7 +4,10 @@ html, body{
 	margin: 0px;
 	padding: 0px;
 	font-family: ARIAL;
+	color: #333;
 }
+
+/* COLOR #2ab54a */
 
 a:link,  a:visited, a:active{
 	text-decoration: none; 
@@ -111,4 +114,37 @@ h1{
 .listaTemas a:hover{
 	background-color: #bbb6b6;
 	border: 2px solid #bbb6b6;
+}
+
+/* DIV CONTENEDOR  */
+.contenedor{
+    text-align: center;
+	width: 100%;
+	margin-top: 5%;
+}
+
+
+/* PANTALLA LOGIN */
+.login-form{
+	width: 50%;
+	padding: 1cm;
+	margin: auto;
+	border: 2px solid #e0e0e0;
+	box-shadow: 5px 10px 8px #aeaeae;
+}
+.login-form input{
+	width: 100%;
+}
+.login-form span{
+	display: block;
+	text-align: left;
+}
+.login-form button{
+	margin-top: 5%;
+	font-size: 1.2em;
+	color: white;
+	padding: .5em .8em;
+	border-radius: 5px;
+	background-color: #2ab54a;
+	cursor: pointer;
 }
