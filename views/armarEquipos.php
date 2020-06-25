@@ -15,32 +15,41 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Equipos</title>
 		<link rel="stylesheet" type="text/css" href="css/estilos.css"/>
+        <link rel="stylesheet" type="text/css" href="css/miscelanea.css"/>
+        <script src='https://kit.fontawesome.com/a076d05399.js'></script>
     </head>
     <body>
         <div class="encabezado">
-			<a class="gestionarPreguntas" href="../app/logoutController.php" >
+            <a href="seleccionaTema.php" class="gestionarPreguntas float-left arrow">
+				<i class='fas fa-arrow-left'></i>
+			</a>
+            <a class="gestionarPreguntas" href="../app/logoutController.php" >
 				Cerrar sesión
 			</a>
 		</div>
-        <div>
+        <div class="contenedor-div">
             <?php
                 echo "<h3>$tema</h3>";
             ?>
-            <h1>¡¡Genial!!</h1>
+            <h1 class="titulos">¡¡Genial!!</h1>
             <p>Ahora vamos a crear los equipos. (Estos pueden ser de hasta cuatro integrantes)</p>
-            <div>
-                <h2>Equipo Rojo</h2>
-                <div id="equipoRojo">
-                    <input type="text" id="r1" placeholder="Nombre del integrante">
-                    <input type="text" id="r2" placeholder="Nombre del integrante">
+            <div class="equipo">
+                <div class="header-equipo-rojo">
+                    <h2>Equipo Rojo</h2>
+                </div>
+                <div id="equipoRojo" class="content-equipo" >
+                    <input type="text" class="input-text input-equipo" id="r1" placeholder="Nombre del integrante">
+                    <input type="text" class="input-text input-equipo" id="r2" placeholder="Nombre del integrante">
                 </div>
                 <button onclick="agregarIntegranteRojo()">Agrear integrante</button>
             </div>
-            <div>
-                <h2>Equipo Azul</h2>
-                <div id="equipoAzul">
-                    <input type="text" id="a1" placeholder="Nombre del integrante">
-                    <input type="text" id="a2" placeholder="Nombre del integrante">
+            <div class="equipo">
+                <div class="header-equipo-azul">
+                    <h2>Equipo Azul</h2>
+                </div>
+                <div id="equipoAzul" class="content-equipo">
+                    <input type="text" class="input-text input-equipo" id="a1" placeholder="Nombre del integrante">
+                    <input type="text" class="input-text input-equipo" id="a2" placeholder="Nombre del integrante">
                 </div>
                 <button onclick="agregarIntegranteAzul()">Agrear integrante</button>
             </div>
@@ -65,6 +74,7 @@
                 nuevo.type = "text";   
                 nuevo.id = "r"+equipoRojo;           
                 nuevo.placeholder = "Nombre del integrante"; 
+                nuevo.setAttribute("class", "input-text input-equipo");
                 document.getElementById("equipoRojo").appendChild(nuevo);
             }else
             {
@@ -79,6 +89,7 @@
                 nuevo.type = "text";    
                 nuevo.id = "a"+equipoAzul;             
                 nuevo.placeholder = "Nombre del integrante";
+                nuevo.setAttribute("class", "input-text input-equipo");
                 document.getElementById("equipoAzul").appendChild(nuevo);                
             }else
             {
