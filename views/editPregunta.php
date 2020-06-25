@@ -17,10 +17,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Editar Pregunta</title>
         <link rel="stylesheet" type="text/css" href="css/estilos.css"/>
+        <link rel="stylesheet" type="text/css" href="css/miscelanea.css"/>
+	<script src='https://kit.fontawesome.com/a076d05399.js'></script>
         <script type="text/javascript" src="js/addValidation.js"></script>
     </head>
     <body onload="loadPregunta()">
         <div class="encabezado">
+            <?php
+                echo "<a href='detalleTema.php?materia=$materia&tema=$tema' class='gestionarPreguntas float-left arrow'>
+                        <i class='fas fa-arrow-left'></i>
+                    </a>";
+            ?> 
             <a class="gestionarPreguntas" href="../app/logoutController.php" >
                 Cerrar sesión
             </a>

@@ -136,9 +136,14 @@ ul li:hover{
 	margin-top: 5%;	
 }
 .contenedor-div{
-	width: 89%;
+	width: 90%;
 	margin-top: 5%;
 	padding: 0 1cm;
+}
+
+.footer{
+	width: 90%;
+	text-align: right;
 }
 
 
@@ -166,3 +171,16 @@ ul li:hover{
 	background-color: #2ab54a;
 	cursor: pointer;
 }
+
+
+/* PANTALLA DETALLE TEMA */
+.add-button{
+	margin-top: 5%;
+	font-size: 1.1em;
+	color: white;
+	padding: .5em .8em;
+	border-radius: 5px;
+	background-color: #2ab54a;
+	cursor: pointer;
+}
+

@@ -19,24 +19,28 @@
         ?>
         <link rel="stylesheet" type="text/css" href="css/estilos.css"/>
         <link rel="stylesheet" type="text/css" href="css/miscelanea.css"/>  
+        <script src='https://kit.fontawesome.com/a076d05399.js'></script>
     </head>
     <body onload="loadPreguntas()">
         <div class="encabezado">
+            <a href="dash.php" class="gestionarPreguntas float-left arrow">
+				<i class='fas fa-arrow-left'></i>
+			</a>
             <a class="gestionarPreguntas" href="../app/logoutController.php" >
                 Cerrar sesión
             </a>
         </div>
-        <div>
+        <div class="contenedor-div">
             <?php
-                echo "<h1 id='uno'>$materia</h1>";
+                echo "<h1 id='uno' class='titulos'>$materia</h1>";
                 echo "<h3>$tema</h3>";
             ?>
             <div id="listaPreguntas"></div>
         </div>
-        <div>
+        <div class="footer">
             <br>
             <?php
-                echo "<a href='addPregunta.php?materia=$materia&tema=$tema'>Nueva Pregunta</a>";
+                echo "<a href='addPregunta.php?materia=$materia&tema=$tema' class='gestionarPreguntas add-button'>Nueva Pregunta</a>";
             ?>
         </div>
         <div id="myModal" class="modal">

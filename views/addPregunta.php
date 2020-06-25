@@ -6,7 +6,8 @@
 		die();
 	}
 
-	
+	$materia = $_GET['materia'];
+	$tema = $_GET['tema'];
 	
  ?>
  <!DOCTYPE html>
@@ -14,19 +15,24 @@
  <head>
  	<title>Nueva pregunta</title>
 	<link rel="stylesheet" type="text/css" href="css/estilos.css"/>
+	<link rel="stylesheet" type="text/css" href="css/miscelanea.css"/>
 	<script type="text/javascript" src="js/addValidation.js"></script>
+	<script src='https://kit.fontawesome.com/a076d05399.js'></script>
  </head>
  <body>
  	<div class="encabezado">
-		<a class="gestionarPreguntas" href="../app/logoutController.php" >
+		<?php
+			echo "<a href='detalleTema.php?materia=$materia&tema=$tema' class='gestionarPreguntas float-left arrow'>
+					<i class='fas fa-arrow-left'></i>
+				</a>";
+		?> 
+	 	<a class="gestionarPreguntas" href="../app/logoutController.php" >
 			Cerrar sesión
 		</a>
 	</div>
 	<div>
 		<h1>Alta Preguntas</h1>
 	 	<?php
-	 		$materia = $_GET['materia'];
-	 		$tema = $_GET['tema'];
 	 		echo "<h2>$materia</h2><h3>$tema</h3>"; 
 	 	?>
 		<form method="post" action="../app/addPreguntaController.php" enctype="multipart/form-data" onsubmit="return beforeSubmit()">
