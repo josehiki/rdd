@@ -2,8 +2,7 @@
      $materia = $_GET['materia'];
      $tema = $_GET['tema'];
 
-     include_once '../app/getPreguntasJuego.php';
-
+    include_once '../app/getPreguntasJuego.php';
     $preguntasLoaded = getPreguntas();
 ?>
 <!DOCTYPE html>
