@@ -266,3 +266,25 @@ ul li:hover{
 	font-size: 1em;
 	margin-top: .5cm;
 }
+
+/*PANTALLA ALTAPREGUNTA*/
+.form-alta{
+	width: 80%;
+	margin: auto;
+}
+.input-titulo{
+	width: 100%;
+	font-size: 1.5em;
+	font-weight: 400;
+}
+.input-imagen{
+	display: block;
+	margin: .3em auto;
+}
+.input-pregunta{
+	display: block;
+	width: 40%;
+}
+.radio-pregunta{
+	visibility: hidden;
+}

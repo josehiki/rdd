@@ -2,10 +2,10 @@ function setRadioValue(inputId) //Activa o desactiva los radiobutton segun si ha
 {
 	var contenido = document.getElementById(inputId).value;
 	if (!!(contenido.trim())) {
-		document.getElementById(inputId+'R').style.display = 'inline';
+		document.getElementById(inputId+'R').style.visibility = 'visible';
 		document.getElementById(inputId+'R').value = contenido;				
 	}else{
-		document.getElementById(inputId+'R').style.display = 'none';
+		document.getElementById(inputId+'R').style.visibility = 'hidden';
 		document.getElementById(inputId+'R').checked = false;
 	}
 }//setRadioValue

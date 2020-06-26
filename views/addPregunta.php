@@ -14,8 +14,8 @@
  <html>
  <head>
  	<title>Nueva pregunta</title>
-	<link rel="stylesheet" type="text/css" href="css/estilos.css"/>
 	<link rel="stylesheet" type="text/css" href="css/miscelanea.css"/>
+	<link rel="stylesheet" type="text/css" href="css/estilos.css"/>
 	<script type="text/javascript" src="js/addValidation.js"></script>
 	<script src='https://kit.fontawesome.com/a076d05399.js'></script>
  </head>
@@ -30,35 +30,45 @@
 			Cerrar sesión
 		</a>
 	</div>
-	<div>
-		<h1>Alta Preguntas</h1>
+	<div class="contenedor-div">
+		<h1 class="titulos">Nueva Pregunta</h1>
 	 	<?php
-	 		echo "<h2>$materia</h2><h3>$tema</h3>"; 
+	 		echo"	<h2><span>Materia: </span>$materia</h2>
+	 			 	<h3><span>Tema: </span>$tema</h3>"; 
 	 	?>
-		<form method="post" action="../app/addPreguntaController.php" enctype="multipart/form-data" onsubmit="return beforeSubmit()">
+	 	<p>Ingrese la informaci&oacuten de su pregunta</p>
+		<form class="form-alta" method="post" action="../app/addPreguntaController.php" enctype="multipart/form-data" onsubmit="return beforeSubmit()">
 			<?php 
 				echo "<input type='text' name='materia' style='display: none;' value='$materia'/>";
 				echo "<input type='text' name='tema' style='display: none;' value='$tema'/>"; 
 			?>
 			<span>Título de la pregunta</span><br>
-			<input type="text" name="pregunta" required="" placeholder="Ingrese su pregunta" autocomplete="off"/><br>
+			<input type="text" class="input-titulo input-text" name="pregunta" required="" placeholder="Ingrese su pregunta" autocomplete="off"/><br><br>
+
 			<span>Imagen de apoyo</span><br>
-			<input type="file" name="imagen" id="imgFile" onchange="return imageValidation()"/><br>
-			<!-- <div id="imagePreview" ></div> -->
+			<input type="file" class="input-imagen" name="imagen" id="imgFile" onchange="return imageValidation()"/><br>
 			<img id="imagePreview"  style="width: 200px;" src=""><br>
+
 			<span>Respuestas</span><br>
-			<span>a)</span>
-			<input id="a" type="text" name="opcA" onkeyup="setRadioValue(this.id)" autocomplete="off" />
-			<input type="radio" id="aR" name="res" style="display: none;" required="" tabindex="-1"><br>
-			<span>b)</span>
-			<input id="b" type="text" name="opcB" onkeyup="setRadioValue(this.id)" autocomplete="off"/>
-			<input type="radio" id="bR" name="res" style="display: none;" tabindex="-1"><br>
-			<span>c)</span>
-			<input id="c" type="text" name="opcC" onkeyup="setRadioValue(this.id)" autocomplete="off"/>
-			<input type="radio" id="cR" name="res" style="display: none;" tabindex="-1"><br>
-			<span>d)</span>
-			<input id="d" type="text" name="opcD" onkeyup="setRadioValue(this.id)" autocomplete="off"/>
-			<input type="radio" id="dR" name="res" style="display: none;" tabindex="-1"><br>
+			<div class="input-pregunta">
+				<input id="a" type="text" class="input-text" name="opcA" onkeyup="setRadioValue(this.id)" autocomplete="off" />
+				<input type="radio" id="aR"  name="res" class="radio-pregunta" required="" tabindex="-1">				
+			</div>
+
+			<div class="input-pregunta">
+				<input id="b" type="text" class="input-text" name="opcB" onkeyup="setRadioValue(this.id)" autocomplete="off"/>
+				<input type="radio" id="bR" name="res" class="radio-pregunta" tabindex="-1"><br>
+			</div>
+
+			<div class="input-pregunta">
+				<input id="c" type="text" class="input-text" name="opcC" onkeyup="setRadioValue(this.id)" autocomplete="off"/>
+				<input type="radio" id="cR" name="res" class="radio-pregunta" tabindex="-1">
+			</div>
+			
+			<div class="input-pregunta">
+				<input id="d" type="text" class="input-text" name="opcD" onkeyup="setRadioValue(this.id)" autocomplete="off"/>
+				<input type="radio" id="dR" name="res" class="radio-pregunta" tabindex="-1"><br>
+			</div>
 			<button>Crear</button>
 		</form>
 	</div>
