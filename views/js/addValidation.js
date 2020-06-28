@@ -43,6 +43,7 @@ function imageValidation() // Valida el tipo de archivo y el tamaño de la image
 		if (fileInput.files && fileInput.files[0]) {
 			var reader = new FileReader();
 			reader.onload = function(e) {
+				document.getElementById('imagePreview').style.display = 'block';
 				document.getElementById('imagePreview').src = e.target.result;
 
 			};

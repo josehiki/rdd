@@ -16,15 +16,15 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Editar Pregunta</title>
-        <link rel="stylesheet" type="text/css" href="css/estilos.css"/>
         <link rel="stylesheet" type="text/css" href="css/miscelanea.css"/>
+        <link rel="stylesheet" type="text/css" href="css/estilos.css"/>        
 	<script src='https://kit.fontawesome.com/a076d05399.js'></script>
         <script type="text/javascript" src="js/addValidation.js"></script>
     </head>
     <body onload="loadPregunta()">
         <div class="encabezado">
             <?php
-                echo "<a href='detalleTema.php?materia=$materia&tema=$tema' class='gestionarPreguntas float-left arrow'>
+                echo "<a style='float: left; href='detalleTema.php?materia=$materia&tema=$tema' class='float-left gestionarPreguntas arrow'>
                         <i class='fas fa-arrow-left'></i>
                     </a>";
             ?> 
@@ -32,10 +32,11 @@
                 Cerrar sesión
             </a>
         </div>
-        <div>
+        <div class="contenedor-div">
+            <h1 class="titulos">Editar Pregunta</h1>
             <?php
-                echo "<h1 id='uno'>$materia</h1>";
-                echo "<h3>$tema</h3>";
+                echo"	<h2 class='tag'><span>Materia: </span>$materia</h2>
+                        <h3 class='tag'><span>Tema: </span>$tema</h3>"; 
             ?>
             <div id="editPregunta"></div>
         </div>

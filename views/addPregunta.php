@@ -22,7 +22,7 @@
  <body>
  	<div class="encabezado">
 		<?php
-			echo "<a href='detalleTema.php?materia=$materia&tema=$tema' class='gestionarPreguntas float-left arrow'>
+			echo "<a style='float: left;' href='detalleTema.php?materia=$materia&tema=$tema' class='gestionarPreguntas float-left arrow'>
 					<i class='fas fa-arrow-left'></i>
 				</a>";
 		?> 
@@ -33,8 +33,8 @@
 	<div class="contenedor-div">
 		<h1 class="titulos">Nueva Pregunta</h1>
 	 	<?php
-	 		echo"	<h2><span>Materia: </span>$materia</h2>
-	 			 	<h3><span>Tema: </span>$tema</h3>"; 
+	 		echo"	<h2 class='tag'><span>Materia: </span>$materia</h2>
+	 			 	<h3 class='tag'><span>Tema: </span>$tema</h3>"; 
 	 	?>
 	 	<p>Ingrese la informaci&oacuten de su pregunta</p>
 		<form class="form-alta" method="post" action="../app/addPreguntaController.php" enctype="multipart/form-data" onsubmit="return beforeSubmit()">
@@ -47,29 +47,31 @@
 
 			<span>Imagen de apoyo</span><br>
 			<input type="file" class="input-imagen" name="imagen" id="imgFile" onchange="return imageValidation()"/><br>
-			<img id="imagePreview"  style="width: 200px;" src=""><br>
-
-			<span>Respuestas</span><br>
-			<div class="input-pregunta">
-				<input id="a" type="text" class="input-text" name="opcA" onkeyup="setRadioValue(this.id)" autocomplete="off" />
-				<input type="radio" id="aR"  name="res" class="radio-pregunta" required="" tabindex="-1">				
-			</div>
-
-			<div class="input-pregunta">
-				<input id="b" type="text" class="input-text" name="opcB" onkeyup="setRadioValue(this.id)" autocomplete="off"/>
-				<input type="radio" id="bR" name="res" class="radio-pregunta" tabindex="-1"><br>
-			</div>
-
-			<div class="input-pregunta">
-				<input id="c" type="text" class="input-text" name="opcC" onkeyup="setRadioValue(this.id)" autocomplete="off"/>
-				<input type="radio" id="cR" name="res" class="radio-pregunta" tabindex="-1">
-			</div>
+			<img id="imagePreview" class="imagen-pregunta" style="display: none;"><br>
 			
-			<div class="input-pregunta">
-				<input id="d" type="text" class="input-text" name="opcD" onkeyup="setRadioValue(this.id)" autocomplete="off"/>
-				<input type="radio" id="dR" name="res" class="radio-pregunta" tabindex="-1"><br>
+			<span>Respuestas</span><br>
+			<div class="wrapper">
+				<div class="input-pregunta">
+					<input id="a" type="text" class="input-p input-text" name="opcA" onkeyup="setRadioValue(this.id)" autocomplete="off" />
+					<input type="radio" id="aR"  name="res" class="radio-pregunta" required="" tabindex="-1">				
+				</div>
+
+				<div class="input-pregunta">
+					<input id="b" type="text" class="input-p input-text" name="opcB" onkeyup="setRadioValue(this.id)" autocomplete="off"/>
+					<input type="radio" id="bR" name="res" class="radio-pregunta" tabindex="-1"><br>
+				</div>
+
+				<div class="input-pregunta">
+					<input id="c" type="text" class="input-p input-text" name="opcC" onkeyup="setRadioValue(this.id)" autocomplete="off"/>
+					<input type="radio" id="cR" name="res" class="radio-pregunta" tabindex="-1">
+				</div>
+				
+				<div class="input-pregunta">
+					<input id="d" type="text" class="input-p input-text" name="opcD" onkeyup="setRadioValue(this.id)" autocomplete="off"/>
+					<input type="radio" id="dR" name="res" class="radio-pregunta" tabindex="-1"><br>
+				</div>
 			</div>
-			<button>Crear</button>
+			<button class="button-pregunta boton-to-a">Crear</button>
 		</form>
 	</div>
 	<?php 

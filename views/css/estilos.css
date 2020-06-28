@@ -137,7 +137,7 @@ ul li:hover{
 }
 .contenedor-div{
 	width: 90%;
-	margin-top: 5%;
+	margin-top: 2%;
 	padding: 0 1cm;
 }
 
@@ -268,9 +268,20 @@ ul li:hover{
 }
 
 /*PANTALLA ALTAPREGUNTA*/
+.tag{
+	display: inline-block;
+	margin-right: 1cm;
+}
+.tag span{
+	font-weight: normal;
+	font-size: .8em;
+}
 .form-alta{
 	width: 80%;
 	margin: auto;
+}
+.form-alta span{
+	font-weight: bold;
 }
 .input-titulo{
 	width: 100%;
@@ -281,10 +292,31 @@ ul li:hover{
 	display: block;
 	margin: .3em auto;
 }
+.wrapper{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+
+}
 .input-pregunta{
 	display: block;
-	width: 40%;
+	width: 100%;
+	margin: 1em 0;
+}
+
+.input-p{
+	width: 80%;
+	height: 2.5em;
 }
 .radio-pregunta{
 	visibility: hidden;
+}
+
+.button-pregunta{
+	display: block;
+    margin: auto;
+    background-color: #2ab54a;
+    color: white;
+    padding: .5em 1.5em;
+    border-radius: 5px;
+    font-size: 1.2em;
 }
