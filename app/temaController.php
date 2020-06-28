@@ -37,7 +37,7 @@
 
     if($preguntas)
     {
-        echo "<table>";
+        echo "<table style='width: 100%'>";
         foreach ($preguntas as $pregunta) {
             $titulo = $pregunta['titulo'];
             $id = $pregunta['id'];

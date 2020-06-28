@@ -24,7 +24,7 @@
     <body onload="loadPregunta()">
         <div class="encabezado">
             <?php
-                echo "<a style='float: left; href='detalleTema.php?materia=$materia&tema=$tema' class='float-left gestionarPreguntas arrow'>
+                echo "<a style='float: left;' href='detalleTema.php?materia=$materia&tema=$tema' class='float-left gestionarPreguntas arrow'>
                         <i class='fas fa-arrow-left'></i>
                     </a>";
             ?> 
