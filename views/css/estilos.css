@@ -362,3 +362,51 @@ ul li:hover{
 .footer button:hover{
 	background-color: rgba(42, 180, 74, .7);
 }
+
+
+/* PANTALLA JUEGO */
+
+.marcador{
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr	1fr;
+	text-align: center;
+}
+.marcador h2{
+	margin: 0;
+    line-height: 300%;
+}
+#marcadorRojo{
+	background-color: #FF0000;
+	color: white;
+}
+#marcadorAzul{
+	background-color: #0F3BFF;
+	color: white;
+}
+.pregunta-div{
+	width: 100%;
+    text-align: center;
+    margin-top: 1cm;
+}
+.pregunta-div h1, .pregunta-div h2{
+	margin: 0;
+}
+.table-pregunta{
+	width: 90%;
+	margin: .5cm auto;
+	border-collapse: collapse;
+    border-style: hidden;
+}
+.table-pregunta td{
+	height: 4em;
+	width: 50%;
+	border: 1px solid #bcbcbc;
+
+}
+.table-pregunta td button{
+	width: 100%;
+	height: 100%;
+	font-size: 1.2em;
+	padding: .3em .5em;
+}

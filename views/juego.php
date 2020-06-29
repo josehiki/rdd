@@ -21,22 +21,26 @@
         <title>Juego</title>
 		<link rel="stylesheet" type="text/css" href="css/estilos.css"/>
         <link rel="stylesheet" type="text/css" href="css/miscelanea.css"/>  
+        <script src='https://kit.fontawesome.com/a076d05399.js'></script>
     </head>
     <body onload="cargaPregunta()">
         <div class="encabezado">
+            <a href="seleccionaTema.php" class="gestionarPreguntas float-left arrow">
+				<i class='fas fa-arrow-left'></i>
+			</a>
 			<a class="gestionarPreguntas" href="../app/logoutController.php" >
 				Cerrar sesión
 			</a>
 		</div>
-        <div>
-            <h2 id="marcadorRojo">Puntos equipo Rojo: 0</h2>
-            <h2 id="marcadorAzul">Puntos equipo Azul: 0</h2>
+        <div class="marcador">
+            <h2 id="marcadorRojo">Equipo Rojo: 0</h2>
+            <h2 id="marcadorAzul">0: Equipo Azul</h2>
         </div>
-        <div id="divPregunta">
+        <div id="divPregunta" class="pregunta-div">
             <h2 id="colorEquipo"></h2>
             <h1 id="tituloPregunta"></h1>
-            <img id= "imagenPregunta" width="200" />
-            <table id="tablePregunta">
+            <img id= "imagenPregunta" class="imagen-pregunta" onerror="errorCargarImagen()" />
+            <table id="tablePregunta" class="table-pregunta">
                 <tr id="row-1"></tr>
                 <tr id="row-2"></tr>
             </table> 
@@ -61,7 +65,7 @@
             row1.innerHTML = '';
             row2.innerHTML = '';
             
-            document.getElementById("colorEquipo").innerHTML = "Equipo "+turno;
+            document.getElementById("colorEquipo").innerHTML = "Turno: Equipo "+turno;
             document.getElementById("tituloPregunta").innerHTML = preguntas[ronda]['titulo'];
             document.getElementById("imagenPregunta").src = "../app/loadImage.php?id="+preguntas[ronda]['id'];
             if(document.getElementById("imagenPregunta").src == null){
@@ -75,6 +79,7 @@
                 button.value = preguntas[ronda]['respuestas'][i];
                 button.setAttribute('onclick','tiroJugador(this.value , this.id)');
                 button.setAttribute('id',i+'td');
+                button.setAttribute('class', 'boton-to-a');
                 nuevoTd.appendChild(button);
                 if(i < 2){
                     document.getElementById("row-1").appendChild(nuevoTd);
@@ -89,15 +94,16 @@
             {
                 if(turno == 'rojo')
                 {
-                    document.getElementById(id).style.backgroundColor= "green";
                     puntosRojo++;
                 }else{
-                    document.getElementById(id).style.backgroundColor= "green";
                     puntosAzul++;
                 }                
+                    document.getElementById(id).style.backgroundColor= "#65E354";
+            }else{
+                document.getElementById(id).style.backgroundColor= "#F7442B";
             }
-            document.getElementById("marcadorRojo").innerHTML = "Puntos equipo Rojo: "+puntosRojo;
-            document.getElementById("marcadorAzul").innerHTML = "Puntos equipo Azul: "+puntosAzul;
+            document.getElementById("marcadorRojo").innerHTML = "Equipo Rojo: "+puntosRojo;
+            document.getElementById("marcadorAzul").innerHTML = puntosAzul+" :Equpo Azul";
             turno = turno == 'rojo' ? 'azul' : 'rojo';
             ronda++;
             if(ronda < 6){
@@ -114,7 +120,9 @@
             }
         }
 
-
+        function errorCargarImagen(){
+            document.getElementById("imagenPregunta").style.display = "none";
+        }
     // alert(preguntas[0]['id']);
     // alert(preguntas[0]['titulo']);
     // alert(preguntas[0]['respuestas'].length);
