@@ -72,7 +72,7 @@
                         $respuestas[]=$row['respuesta'];
                     }
                 }
-
+                shuffle($respuestas);
                 $respuestaId;
                 //Consulta de la respuesta correcta con el id de pregunta
                 $sql = "SELECT * FROM pregunta_respuesta where pregunta_id=$auxId";

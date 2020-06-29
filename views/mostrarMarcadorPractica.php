@@ -1,5 +1,6 @@
 <?php 
     $puntos = $_GET['puntos'];
+    $tema = $_GET['tema'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
