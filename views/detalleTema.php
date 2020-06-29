@@ -37,8 +37,7 @@
             ?>
             <div id="listaPreguntas"></div>
         </div>
-        <div class="footer">
-            <br>
+        <div class="footer-altaPregunta">
             <?php
                 echo "<a href='addPregunta.php?materia=$materia&tema=$tema' class='gestionarPreguntas add-button'>Nueva Pregunta</a>";
             ?>

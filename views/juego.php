@@ -67,10 +67,8 @@
             
             document.getElementById("colorEquipo").innerHTML = "Turno: Equipo "+turno;
             document.getElementById("tituloPregunta").innerHTML = preguntas[ronda]['titulo'];
+            document.getElementById("imagenPregunta").style.display = "block";
             document.getElementById("imagenPregunta").src = "../app/loadImage.php?id="+preguntas[ronda]['id'];
-            if(document.getElementById("imagenPregunta").src == null){
-                document.getElementById("imagenPregunta").style.display = 'none';
-            }
             for (var i = 0; i < preguntas[ronda]['respuestas'].length; i++) 
             {
                 var nuevoTd = document.createElement("td");
