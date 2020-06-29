@@ -33,28 +33,34 @@
             ?>
             <h1 class="titulos">¡¡Genial!!</h1>
             <p>Ahora vamos a crear los equipos. (Estos pueden ser de hasta cuatro integrantes)</p>
-            <div class="equipo">
-                <div class="header-equipo-rojo">
-                    <h2>Equipo Rojo</h2>
+            <div class="equipos">
+                <div>
+                    <div class="header-equipo-rojo">
+                        <h2>Equipo Rojo</h2>
+                    </div>
+                    <div class="content-equipo">
+                        <div id="equipoRojo"  >
+                            <input type="text" class="input-text input-equipo" id="r1" placeholder="Nombre del integrante">
+                            <input type="text" class="input-text input-equipo" id="r2" placeholder="Nombre del integrante">
+                        </div>
+                        <button onclick="agregarIntegranteRojo()">Agregar integrante</button>
+                    </div>
                 </div>
-                <div id="equipoRojo" class="content-equipo" >
-                    <input type="text" class="input-text input-equipo" id="r1" placeholder="Nombre del integrante">
-                    <input type="text" class="input-text input-equipo" id="r2" placeholder="Nombre del integrante">
+                <div>
+                    <div class="header-equipo-azul">
+                        <h2>Equipo Azul</h2>
+                    </div>
+                    <div class="content-equipo">
+                        <div id="equipoAzul" >
+                            <input type="text" class="input-text input-equipo" id="a1" placeholder="Nombre del integrante">
+                            <input type="text" class="input-text input-equipo" id="a2" placeholder="Nombre del integrante">
+                        </div>
+                        <button onclick="agregarIntegranteAzul()">Agregar integrante</button>
+                    </div>
                 </div>
-                <button onclick="agregarIntegranteRojo()">Agrear integrante</button>
             </div>
-            <div class="equipo">
-                <div class="header-equipo-azul">
-                    <h2>Equipo Azul</h2>
-                </div>
-                <div id="equipoAzul" class="content-equipo">
-                    <input type="text" class="input-text input-equipo" id="a1" placeholder="Nombre del integrante">
-                    <input type="text" class="input-text input-equipo" id="a2" placeholder="Nombre del integrante">
-                </div>
-                <button onclick="agregarIntegranteAzul()">Agrear integrante</button>
-            </div>
-            <div>
-                <br>
+            
+            <div class="footer">
                 <button onclick="iniciarJuego()">Comenzar</button>
             </div>
         </div>

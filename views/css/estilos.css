@@ -234,39 +234,6 @@ ul li:hover{
 	cursor: pointer;
 }
 
-/* PANTALLA ARMAR EQUIPOS */
-.equipo{
-	width: 45%;
-	display: inline-block;
-	margin: 0 1cm 0 0 ;
-}
-.header-equipo-rojo{
-	background-color: #FF0000;
-	text-align: center;
-	border-radius: 5px 5px 0 0;
-	border: 3px solid #CC0000;
-}
-.header-equipo-azul{
-	background-color: #0F3BFF;
-	text-align: center;
-	border-radius: 5px 5px 0 0;
-	border: 3px solid #0C30CC;
-}
-.header-equipo-rojo h2, .header-equipo-azul h2{
-	color: white;
-	padding: .2cm;
-	margin: 0;
-}
-.content-equipo{
-	text-align: center;
-}
-
-.input-equipo{
-	width: 80%;
-	font-size: 1em;
-	margin-top: .5cm;
-}
-
 /*PANTALLA ALTAPREGUNTA*/
 .tag{
 	display: inline-block;
@@ -319,4 +286,79 @@ ul li:hover{
     padding: .5em 1.5em;
     border-radius: 5px;
     font-size: 1.2em;
+}
+
+/* PANTALLA ARMAR EQUIPOS */
+.equipos{
+	display: grid;
+	width: 100%;
+	grid-template-columns: 1fr 1fr;
+}
+.equipos div{
+	padding: 0 .5cm;
+}
+.header-equipo-rojo{
+	background-color: #FF0000;
+	text-align: center;
+	border-radius: 10px 10px 0 0;
+	border: 3px solid #CC0000;
+	border-bottom: 0;
+}
+.header-equipo-azul{
+	background-color: #0F3BFF;
+	text-align: center;
+	border-radius: 10px 10px 0 0;
+	border: 3px solid #0C30CC;
+	border-bottom: 0;
+}
+.header-equipo-rojo h2, .header-equipo-azul h2{
+	color: white;
+	padding: .2cm;
+	margin: 0;
+}
+.content-equipo{
+	text-align: center;
+	border: 3px solid #9e9e9e;
+    border-top: 0;
+    border-radius: 0 0 10px 10px;
+}
+.input-equipo{
+	width: 80%;
+	font-size: 1em;
+	margin-top: .5cm;
+}
+
+.equipos div button{
+	display: block;
+    margin: .5cm auto;
+    padding: .2cm .5cm;
+    border-radius: 5px;
+    background-color: transparent;
+	border: 1px solid gray;
+	cursor: pointer;
+}
+
+.equipos div button:hover{
+	background-color: #bcbcbc;
+    color: #ffffff;
+}
+
+.footer{
+	text-align: center;
+    margin: 0;
+    width: 100%;
+    padding: 1cm 0;
+}
+.footer button{
+	background-color: #2ab54a;
+    border: 1px solid #2ab54a;
+    padding: .3cm .5cm;
+    font-size: 1.5em;
+    color: white;
+    letter-spacing: 2px;
+	border-radius: 10px;
+	cursor: pointer;
+}
+.footer button:hover{
+	background-color: rgba(42, 180, 74, .7);
 }
