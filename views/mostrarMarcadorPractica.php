@@ -23,11 +23,13 @@
             ?>
         </div>
         <div class="marcador-footer">
-            <a href="">
-                <i class='fas fa-redo-alt'></i>
-                Volver a jugar
-            </a>
-            <a href="">
+            <?php
+                echo "  <a href='juegoPractica.php?tema=$tema'>
+                            <i class='fas fa-redo-alt'></i>
+                                Volver a jugar
+                        </a>";
+            ?>
+            <a href="seleccionaTemaPractica.php">
                 <i class='fas fa-book'></i>
                 Cambiar tema
             </a>

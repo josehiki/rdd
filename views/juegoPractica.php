@@ -1,5 +1,4 @@
     <?php
-     $materia = $_GET['materia'];
      $tema = $_GET['tema'];
 
     include_once '../app/getPreguntasJuego.php';
